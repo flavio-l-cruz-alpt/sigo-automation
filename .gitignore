@@ -1,0 +1,66 @@
+### --- Geral & OS ---
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.log
+.history/
+
+### --- Shell Script ---
+# Logs de execução e arquivos temporários de scripts
+*.out
+*.tmp
+# Caso você use arquivos .env para carregar variáveis de ambiente localmente
+.env
+.envrc
+
+### --- Python ---
+# Ambientes virtuais (crucial não subir!)
+venv/
+.venv/
+env/
+bin/
+lib/
+# Cache de compilação
+__pycache__/
+*.py[cod]
+*$py.class
+# Empacotamento
+dist/
+build/
+*.egg-info/
+
+### --- Terraform ---
+# Ignora o diretório de plugins e módulos (podem ser muito pesados)
+.terraform/
+# IGNORA O ESTADO LOCAL (Segurança: contém segredos em texto puro)
+*.tfstate
+*.tfstate.*
+# Variáveis sensíveis
+*.tfvars
+*.tfvars.json
+# Arquivos de log e crash
+crash.log
+# Arquivos de backup do Terraform
+.terraform.tfstate.lock.info
+
+### --- Ansible ---
+# Logs do Ansible
+ansible.log
+# Arquivos de retry (criados quando um playbook falha)
+*.retry
+# Se você baixar roles/collections localmente
+roles/galaxy/
+collections/
+
+### --- Docker / Kubernetes ---
+.docker/
+# Arquivos de configuração do Helm
+charts/
+# Kubeconfig local (Nunca suba isso!)
+kubeconfig
+.kube/
+
+### --- Ferramentas de CI/CD & Automação ---
+# Logs do Jenkins, logs de runners locais, etc.
+.terraform.lock.hcl
