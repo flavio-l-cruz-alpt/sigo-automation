@@ -1,0 +1,6 @@
+# Local: /opt/ptin/automation/ops/sigo-automation/inventory/hosts
+
+
+[sigo_web]
+ckqsig82_web1
+ckqsig83_web2

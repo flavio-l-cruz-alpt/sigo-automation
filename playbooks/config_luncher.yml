@@ -1,0 +1,23 @@
+---
+- name: Atualização de Scripts de Suporte - SIGO WEB
+  hosts: sigo_web  # Nome exato do grupo no teu arquivo hosts
+  gather_facts: no # Acelera a execução se não precisares de info do sistema
+  become: yes
+
+  tasks:
+    - name: Garantir pasta de scripts no destino
+      ansible.builtin.file:
+        path: /opt/ptin/automation/globalcad_sync_etl/
+        state: directory
+        owner: sigo
+        group: ptin
+        mode: '0755'
+
+    - name: Copiar Script de Automação Bash
+      ansible.builtin.copy:
+        # Assume que o script está na pasta /scripts do teu repo
+        src: ../scripts/globalcad_pull.sh
+        dest: /opt/ptin/automation/globalcad_sync_etl/bin/globalcad_pull.sh
+        owner: sigo
+        group: ptin
+        mode: '0750' # Execução apenas pelo dono/grupo por segurança

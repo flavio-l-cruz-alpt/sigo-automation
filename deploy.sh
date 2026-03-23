@@ -1,6 +1,12 @@
 #!/bin/bash
-cd /opt/ptin/automation/ops/sigo-automation
+# Local: /opt/ptin/automation/ops/sigo-automation/deploy.sh
+
+REPO_DIR="/opt/ptin/automation/ops/sigo-automation"
+
+cd $REPO_DIR || exit
+
+# 1. Atualiza o código vindo do GitHub (HTTPS via Proxy)
 git pull origin main
 
-# Executar o playbook principal do Ansible para configurar o ambiente
-ansible-playbook -i inventory/hosts playbooks/config_luncher.yml 
+# 2. Executa o Playbook usando o inventário que acabaste de me mostrar
+ansible-playbook -i inventory/hosts playbooks/config_luncher.yml/
